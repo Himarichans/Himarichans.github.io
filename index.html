@@ -191,9 +191,15 @@
         <i class="far fa-calendar"></i>
       </span>
       <span class="post-meta-item-text">Posted on</span>
-      
 
-      <time title="Created: 2024-01-04 20:27:58 / Modified: 23:49:45" itemprop="dateCreated datePublished" datetime="2024-01-04T20:27:58+08:00">2024-01-04</time>
+      <time title="Created: 2024-01-04 20:27:58" itemprop="dateCreated datePublished" datetime="2024-01-04T20:27:58+08:00">2024-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-05 00:19:47" itemprop="dateModified" datetime="2024-01-05T00:19:47+08:00">2024-01-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -221,7 +227,14 @@
 <p>Table创建好后点击insert可以选择插入row，column，支持导入csv文件<br><img src="https://i.imgur.com/3FEvH21.png" alt="pic--supabase"></p>
 <h3 id="Database-role-settings"><a href="#Database-role-settings" class="headerlink" title="Database role settings"></a>Database role settings</h3><p>role有三种默认role，postgres role相当于admin可以绕过RLS policies</p>
 <p>anon role用于匿名用户（也就是未登入用户）的访问，遵守RLS policies</p>
-<p>autheticated role也遵守RLS policies，用于登入的用户</p>
+<p>autheticated role也遵守RLS policies，用于登入的用户<br>DataBase Roles中可以查看更多详细的role权限</p>
+<h2 id="配置-env"><a href="#配置-env" class="headerlink" title="配置.env"></a>配置.env</h2><p>新建.env文档在nodejs项目下，把.env加入.gitignore</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASE_URL=</span><br><span class="line">NEXT_PUBLIC_SUPABASE_URL=</span><br><span class="line">NEXT_PUBLIC_SUPABASE_ANON_KEY=</span><br><span class="line">SERVICE_ROLE_KEY=</span><br><span class="line">PW=</span><br><span class="line">NEXT_PUBLIC_SITE_URL=</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=</span><br><span class="line">STRIPE_SECRET_KEY=</span><br><span class="line">STRIPE_WEBHOOK_SECRET=</span><br></pre></td></tr></table></figure>
+
+<h3 id="在Supabase-Setting下API-setting下复制URI在setting-database"><a href="#在Supabase-Setting下API-setting下复制URI在setting-database" class="headerlink" title="在Supabase Setting下API setting下复制URI在setting database"></a>在Supabase Setting下API setting下复制URI在setting database</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>= <span class="comment">// 填入connect string URI</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_URL</span>= <span class="comment">// 填入url</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>= <span class="comment">// 填入anon public密钥</span></span><br><span class="line"><span class="variable constant_">SERVICE_ROLE_KEY</span>= <span class="comment">// 填入service_role secret密钥</span></span><br></pre></td></tr></table></figure>
+
+<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/d759ad75-ebbe-4544-bfc6-192ea372b25f/8c9f1fe1-523e-4979-8646-4739d9a71d5a/Untitled.png" alt="Untitled"></p>
+<p>URI在setting database下找到</p>
 
       
     </div>
