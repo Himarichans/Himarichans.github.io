@@ -125,9 +125,14 @@
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">4</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -176,7 +181,7 @@
     </span>
       <header class="post-header">
         <h2 class="post-title" itemprop="name headline">
-          <a href="/2024/01/04/Supabase/" class="post-title-link" itemprop="url">入门FireBase替代品SupaBase</a>
+          <a href="/2024/01/04/Supabase/" class="post-title-link" itemprop="url">初识SupaBase，FireBase的开源替代品</a>
         </h2>
 
         <div class="post-meta-container">
@@ -188,7 +193,16 @@
       <span class="post-meta-item-text">Posted on</span>
       
 
-      <time title="Created: 2024-01-04 20:27:58 / Modified: 22:19:50" itemprop="dateCreated datePublished" datetime="2024-01-04T20:27:58+08:00">2024-01-04</time>
+      <time title="Created: 2024-01-04 20:27:58 / Modified: 23:49:45" itemprop="dateCreated datePublished" datetime="2024-01-04T20:27:58+08:00">2024-01-04</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+        </span>
     </span>
 
   
@@ -201,8 +215,14 @@
     
     
     <div class="post-body" itemprop="articleBody">
-          <p>Supabase是一款开源的BaaS产品，附带postgresql作为数据库。<br>在使用过程中Supabase提供了相当方便的权限管理例如Row Level Security（RLS），</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2>
+          <p>最近看到一款相当有意思的是一款开源的BaaS产品Supabase，postgresql作为数据库。<br>在使用过程中Supabase提供了相当方便的权限管理像Row Level Security（RLS）</p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>Supabase免费账户提供两个组织，1G文件存储，500MB数据空间<br><img src="https://i.imgur.com/bzQ75nm.png" alt="pic--supabase"></p>
+<h3 id="新建table，row"><a href="#新建table，row" class="headerlink" title="新建table，row"></a>新建table，row</h3><p>TableEditor中点击new table可以创建一个table<br><img src="https://i.imgur.com/M4ZtKJv.png" alt="table"><br>Columns下的id可以选择uuid，Default Value选择gen_random_uuid()意思是随机生成uuid，这样每次新建row的时候就自动生成一个随机的uuid。<br>Is Nullable允许为空值，Is Unique必须为唯一值，勾选Primary可选Is Identity，自动分配一个连续的数到column</p>
+<p>Table创建好后点击insert可以选择插入row，column，支持导入csv文件<br><img src="https://i.imgur.com/3FEvH21.png" alt="pic--supabase"></p>
+<h3 id="Database-role-settings"><a href="#Database-role-settings" class="headerlink" title="Database role settings"></a>Database role settings</h3><p>role有三种默认role，postgres role相当于admin可以绕过RLS policies</p>
+<p>anon role用于匿名用户（也就是未登入用户）的访问，遵守RLS policies</p>
+<p>autheticated role也遵守RLS policies，用于登入的用户</p>
+
       
     </div>
 
