@@ -199,7 +199,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-05 00:19:47" itemprop="dateModified" datetime="2024-01-05T00:19:47+08:00">2024-01-05</time>
+      <time title="Modified: 2024-01-05 00:29:15" itemprop="dateModified" datetime="2024-01-05T00:29:15+08:00">2024-01-05</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -222,7 +222,7 @@
     
     <div class="post-body" itemprop="articleBody">
           <p>最近看到一款相当有意思的是一款开源的BaaS产品Supabase，postgresql作为数据库。<br>在使用过程中Supabase提供了相当方便的权限管理像Row Level Security（RLS）</p>
-<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>Supabase免费账户提供两个组织，1G文件存储，500MB数据空间<br><img src="https://i.imgur.com/bzQ75nm.png" alt="pic--supabase"></p>
+<h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>Supabase免费账户提供两个组织，1G文件存储，500MB数据空间</p>
 <h3 id="新建table，row"><a href="#新建table，row" class="headerlink" title="新建table，row"></a>新建table，row</h3><p>TableEditor中点击new table可以创建一个table<br><img src="https://i.imgur.com/M4ZtKJv.png" alt="table"><br>Columns下的id可以选择uuid，Default Value选择gen_random_uuid()意思是随机生成uuid，这样每次新建row的时候就自动生成一个随机的uuid。<br>Is Nullable允许为空值，Is Unique必须为唯一值，勾选Primary可选Is Identity，自动分配一个连续的数到column</p>
 <p>Table创建好后点击insert可以选择插入row，column，支持导入csv文件<br><img src="https://i.imgur.com/3FEvH21.png" alt="pic--supabase"></p>
 <h3 id="Database-role-settings"><a href="#Database-role-settings" class="headerlink" title="Database role settings"></a>Database role settings</h3><p>role有三种默认role，postgres role相当于admin可以绕过RLS policies</p>
@@ -233,7 +233,6 @@
 
 <h3 id="在Supabase-Setting下API-setting下复制URI在setting-database"><a href="#在Supabase-Setting下API-setting下复制URI在setting-database" class="headerlink" title="在Supabase Setting下API setting下复制URI在setting database"></a>在Supabase Setting下API setting下复制URI在setting database</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>= <span class="comment">// 填入connect string URI</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_URL</span>= <span class="comment">// 填入url</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>= <span class="comment">// 填入anon public密钥</span></span><br><span class="line"><span class="variable constant_">SERVICE_ROLE_KEY</span>= <span class="comment">// 填入service_role secret密钥</span></span><br></pre></td></tr></table></figure>
 
-<p><img src="https://prod-files-secure.s3.us-west-2.amazonaws.com/d759ad75-ebbe-4544-bfc6-192ea372b25f/8c9f1fe1-523e-4979-8646-4739d9a71d5a/Untitled.png" alt="Untitled"></p>
 <p>URI在setting database下找到</p>
 
       
