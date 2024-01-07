@@ -29,7 +29,7 @@
 <meta property="og:image" content="https://i.imgur.com/M4ZtKJv.png">
 <meta property="og:image" content="https://i.imgur.com/3FEvH21.png">
 <meta property="article:published_time" content="2024-01-04T12:27:58.195Z">
-<meta property="article:modified_time" content="2024-01-05T06:11:24.203Z">
+<meta property="article:modified_time" content="2024-01-07T10:57:17.874Z">
 <meta property="article:author" content="HimariChans">
 <meta property="article:tag" content="前端">
 <meta property="article:tag" content="技术">
@@ -133,18 +133,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">1</span>
+          <span class="site-state-item-count">2</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">1</span>
+        <span class="site-state-item-count">2</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">4</span>
+        <span class="site-state-item-count">6</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -212,7 +212,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-05 14:11:24" itemprop="dateModified" datetime="2024-01-05T14:11:24+08:00">2024-01-05</time>
+      <time title="Modified: 2024-01-07 18:57:17" itemprop="dateModified" datetime="2024-01-07T18:57:17+08:00">2024-01-07</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -237,11 +237,12 @@
 <h2 id="入门"><a href="#入门" class="headerlink" title="入门"></a>入门</h2><p>Supabase免费账户提供两个组织，1G文件存储，500MB数据空间</p>
 <h3 id="新建table，row"><a href="#新建table，row" class="headerlink" title="新建table，row"></a>新建table，row</h3><p>TableEditor中点击new table可以创建一个table<br><img src="https://i.imgur.com/M4ZtKJv.png" alt="table"><br>Columns下的id可以选择uuid，Default Value选择gen_random_uuid()意思是随机生成uuid，这样每次新建row的时候就自动生成一个随机的uuid。<br>Is Nullable允许为空值，Is Unique必须为唯一值，勾选Primary可选Is Identity，自动分配一个连续的数到column</p>
 <p>Table创建好后点击insert可以选择插入row，column，支持导入csv文件<br><img src="https://i.imgur.com/3FEvH21.png" alt="pic--supabase"></p>
-<h3 id="Table-Relation"><a href="#Table-Relation" class="headerlink" title="Table Relation"></a>Table Relation</h3><h3 id="Database-role-settings"><a href="#Database-role-settings" class="headerlink" title="Database role settings"></a>Database role settings</h3><p>role有三种默认role，postgres role相当于admin可以绕过RLS policies</p>
+<h3 id="Table-Relation"><a href="#Table-Relation" class="headerlink" title="Table Relation"></a>Table Relation</h3><p>Table之间可以增加relation</p>
+<h3 id="Database-role-settings"><a href="#Database-role-settings" class="headerlink" title="Database role settings"></a>Database role settings</h3><p>role有三种默认role，postgres role相当于admin可以绕过RLS policies</p>
 <p>anon role用于匿名用户（也就是未登入用户）的访问，遵守RLS policies</p>
 <p>autheticated role也遵守RLS policies，用于登入的用户<br>DataBase Roles中可以查看更多详细的role权限</p>
 <h2 id="配置-env"><a href="#配置-env" class="headerlink" title="配置.env"></a>配置.env</h2><p>新建.env文档在nodejs项目下，把.env加入.gitignore</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">DATABASE_URL=</span><br><span class="line">NEXT_PUBLIC_SUPABASE_URL=</span><br><span class="line">NEXT_PUBLIC_SUPABASE_ANON_KEY=</span><br><span class="line">SERVICE_ROLE_KEY=</span><br><span class="line">PW=</span><br><span class="line">NEXT_PUBLIC_SITE_URL=</span><br><span class="line"></span><br><span class="line">NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY=</span><br><span class="line">STRIPE_SECRET_KEY=</span><br><span class="line">STRIPE_WEBHOOK_SECRET=</span><br></pre></td></tr></table></figure>
+<figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>=</span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_URL</span>=</span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>=</span><br><span class="line"><span class="variable constant_">SERVICE_ROLE_KEY</span>=</span><br><span class="line"><span class="variable constant_">PW</span>=</span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SITE_URL</span>=</span><br><span class="line"></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_STRIPE_PUBLISHABLE_KEY</span>=</span><br><span class="line"><span class="variable constant_">STRIPE_SECRET_KEY</span>=</span><br><span class="line"><span class="variable constant_">STRIPE_WEBHOOK_SECRET</span>=</span><br></pre></td></tr></table></figure>
 
 <h3 id="在Supabase-Setting下API-setting下复制URI在setting-database"><a href="#在Supabase-Setting下API-setting下复制URI在setting-database" class="headerlink" title="在Supabase Setting下API setting下复制URI在setting database"></a>在Supabase Setting下API setting下复制URI在setting database</h3><figure class="highlight jsx"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="variable constant_">DATABASE_URL</span>= <span class="comment">// 填入connect string URI</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_URL</span>= <span class="comment">// 填入url</span></span><br><span class="line"><span class="variable constant_">NEXT_PUBLIC_SUPABASE_ANON_KEY</span>= <span class="comment">// 填入anon public密钥</span></span><br><span class="line"><span class="variable constant_">SERVICE_ROLE_KEY</span>= <span class="comment">// 填入service_role secret密钥</span></span><br></pre></td></tr></table></figure>
 
@@ -263,6 +264,15 @@
 
         
 
+          <div class="post-nav">
+            <div class="post-nav-item">
+            </div>
+            <div class="post-nav-item">
+                <a href="/2024/01/06/pgsql/" rel="next" title="PGSQL个人笔记">
+                  PGSQL个人笔记 <i class="fa fa-angle-right"></i>
+                </a>
+            </div>
+          </div>
     </footer>
   </article>
 </div>

@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
+<meta name="theme-color" content="#222"><meta name="generator" content="Hexo 7.0.0">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png">
+  <link rel="mask-icon" href="/images/logo.svg" color="#222">
+
+<link rel="stylesheet" href="/css/main.css">
+
+
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" integrity="sha256-yIDrPSXHZdOZhAqiBP7CKzIwMQmRCJ8UeB8Jo17YC4o=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.1.1/animate.min.css" integrity="sha256-PR7ttpcvz8qrF57fur/yAx1qXMFJeJFiA6pSzWi0OIE=" crossorigin="anonymous">
+
+<script class="next-config" data-name="main" type="application/json">{"hostname":"himarichans.github.io","root":"/","images":"/images","scheme":"Pisces","darkmode":false,"version":"8.19.1","exturl":false,"sidebar":{"position":"left","display":"post","padding":18,"offset":12},"copycode":{"enable":false,"style":null},"fold":{"enable":false,"height":500},"bookmark":{"enable":false,"color":"#222","save":"auto"},"mediumzoom":false,"lazyload":false,"pangu":false,"comments":{"style":"tabs","active":null,"storage":true,"lazyload":false,"nav":null},"stickytabs":false,"motion":{"enable":true,"async":false,"transition":{"menu_item":"fadeInDown","post_block":"fadeIn","post_header":"fadeInDown","post_body":"fadeInDown","coll_header":"fadeInLeft","sidebar":"fadeInUp"}},"i18n":{"placeholder":"Searching...","empty":"We didn't find any results for the search: ${query}","hits_time":"${hits} results found in ${time} ms","hits":"${hits} results found"}}</script><script src="/js/config.js"></script>
+
+    <meta name="description" content="笔记参考视频PostgreSQL Tutorial Full Course 2022 PGSQL比mysql支持更多数据格式 创建一个表创建表，表内有first_name的column格式是VARCHAR(30)，NOT NULL代表不能为空，如果是NULL代表默认为空 123456789CREATE TABLE customer(first_name VARCHAR(30) NOT NULL,l">
+<meta property="og:type" content="article">
+<meta property="og:title" content="PGSQL个人笔记">
+<meta property="og:url" content="https://himarichans.github.io/2024/01/06/pgsql/index.html">
+<meta property="og:site_name" content="HimariChans的技术博客">
+<meta property="og:description" content="笔记参考视频PostgreSQL Tutorial Full Course 2022 PGSQL比mysql支持更多数据格式 创建一个表创建表，表内有first_name的column格式是VARCHAR(30)，NOT NULL代表不能为空，如果是NULL代表默认为空 123456789CREATE TABLE customer(first_name VARCHAR(30) NOT NULL,l">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2024-01-06T09:35:40.322Z">
+<meta property="article:modified_time" content="2024-01-07T10:47:24.825Z">
+<meta property="article:author" content="HimariChans">
+<meta property="article:tag" content="关系型数据库">
+<meta property="article:tag" content="pgsql">
+<meta name="twitter:card" content="summary">
+
+
+<link rel="canonical" href="https://himarichans.github.io/2024/01/06/pgsql/">
+
+
+
+<script class="next-config" data-name="page" type="application/json">{"sidebar":"","isHome":false,"isPost":true,"lang":"en","comments":true,"permalink":"https://himarichans.github.io/2024/01/06/pgsql/","path":"2024/01/06/pgsql/","title":"PGSQL个人笔记"}</script>
+
+<script class="next-config" data-name="calendar" type="application/json">""</script>
+<title>PGSQL个人笔记 | HimariChans的技术博客</title>
+  
+
+
+
+
+
+
+
+
+  <noscript>
+    <link rel="stylesheet" href="/css/noscript.css">
+  </noscript>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" class="use-motion">
+  <div class="headband"></div>
+
+  <main class="main">
+    <div class="column">
+      <header class="header" itemscope itemtype="http://schema.org/WPHeader"><div class="site-brand-container">
+  <div class="site-nav-toggle">
+    <div class="toggle" aria-label="Toggle navigation bar" role="button">
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+        <span class="toggle-line"></span>
+    </div>
+  </div>
+
+  <div class="site-meta">
+
+    <a href="/" class="brand" rel="start">
+      <i class="logo-line"></i>
+      <p class="site-title">HimariChans的技术博客</p>
+      <i class="logo-line"></i>
+    </a>
+  </div>
+
+  <div class="site-nav-right">
+    <div class="toggle popup-trigger" aria-label="Search" role="button">
+    </div>
+  </div>
+</div>
+
+
+
+<nav class="site-nav">
+  <ul class="main-menu menu"><li class="menu-item menu-item-home"><a href="/" rel="section"><i class="fa fa-home fa-fw"></i>Home</a></li><li class="menu-item menu-item-tags"><a href="/tags/" rel="section"><i class="fa fa-tags fa-fw"></i>Tags</a></li><li class="menu-item menu-item-categories"><a href="/categories/" rel="section"><i class="fa fa-th fa-fw"></i>Categories</a></li><li class="menu-item menu-item-archives"><a href="/archives/" rel="section"><i class="fa fa-archive fa-fw"></i>Archives</a></li>
+  </ul>
+</nav>
+
+
+
+
+</header>
+        
+  
+  <aside class="sidebar">
+
+    <div class="sidebar-inner sidebar-nav-active sidebar-toc-active">
+      <ul class="sidebar-nav">
+        <li class="sidebar-nav-toc">
+          Table of Contents
+        </li>
+        <li class="sidebar-nav-overview">
+          Overview
+        </li>
+      </ul>
+
+      <div class="sidebar-panel-container">
+        <!--noindex-->
+        <div class="post-toc-wrap sidebar-panel">
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">创建一个表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">数字类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CHARACTER-TYPES"><span class="nav-number">2.1.</span> <span class="nav-text">CHARACTER TYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NUMERIC-TYPE"><span class="nav-number">2.2.</span> <span class="nav-text">NUMERIC TYPE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOLLEANTYPES"><span class="nav-number">2.3.</span> <span class="nav-text">BOLLEANTYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DATA-TIME"><span class="nav-number">2.4.</span> <span class="nav-text">DATA &#x2F; TIME</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date"><span class="nav-number">2.4.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DATE-TIME"><span class="nav-number">2.4.2.</span> <span class="nav-text">DATE&#x2F;TIME</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OTHER-TYPE"><span class="nav-number">2.5.</span> <span class="nav-text">OTHER TYPE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">插入表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2customer%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">查询customer表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.2.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#ALTER-TABLE"><span class="nav-number">4.3.</span> <span class="nav-text">ALTER TABLE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foregien-Key"><span class="nav-number">5.</span> <span class="nav-text">Foregien Key</span></a></li></ol></div>
+        </div>
+        <!--/noindex-->
+
+        <div class="site-overview-wrap sidebar-panel">
+          <div class="site-author animated" itemprop="author" itemscope itemtype="http://schema.org/Person">
+    <img class="site-author-image" itemprop="image" alt="HimariChans"
+      src="https://avatars.githubusercontent.com/u/46081717?v=4">
+  <p class="site-author-name" itemprop="name">HimariChans</p>
+  <div class="site-description" itemprop="description"></div>
+</div>
+<div class="site-state-wrap animated">
+  <nav class="site-state">
+      <div class="site-state-item site-state-posts">
+        <a href="/archives/">
+          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-name">posts</span>
+        </a>
+      </div>
+      <div class="site-state-item site-state-categories">
+          <a href="/categories/">
+        <span class="site-state-item-count">2</span>
+        <span class="site-state-item-name">categories</span></a>
+      </div>
+      <div class="site-state-item site-state-tags">
+          <a href="/tags/">
+        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-name">tags</span></a>
+      </div>
+  </nav>
+</div>
+  <div class="links-of-author animated">
+      <span class="links-of-author-item">
+        <a href="https://github.com/himarichans" title="GitHub → https:&#x2F;&#x2F;github.com&#x2F;himarichans" rel="noopener me" target="_blank"><i class="fab fa-github fa-fw"></i>GitHub</a>
+      </span>
+  </div>
+
+        </div>
+      </div>
+    </div>
+
+    
+  </aside>
+
+
+    </div>
+
+    <div class="main-inner post posts-expand">
+
+
+  
+
+
+<div class="post-block">
+  
+  
+
+  <article itemscope itemtype="http://schema.org/Article" class="post-content" lang="en">
+    <link itemprop="mainEntityOfPage" href="https://himarichans.github.io/2024/01/06/pgsql/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="image" content="https://avatars.githubusercontent.com/u/46081717?v=4">
+      <meta itemprop="name" content="HimariChans">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="HimariChans的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+
+    <span hidden itemprop="post" itemscope itemtype="http://schema.org/CreativeWork">
+      <meta itemprop="name" content="PGSQL个人笔记 | HimariChans的技术博客">
+      <meta itemprop="description" content="">
+    </span>
+      <header class="post-header">
+        <h1 class="post-title" itemprop="name headline">
+          PGSQL个人笔记
+        </h1>
+
+        <div class="post-meta-container">
+          <div class="post-meta">
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar"></i>
+      </span>
+      <span class="post-meta-item-text">Posted on</span>
+
+      <time title="Created: 2024-01-06 17:35:40" itemprop="dateCreated datePublished" datetime="2024-01-06T17:35:40+08:00">2024-01-06</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-calendar-check"></i>
+      </span>
+      <span class="post-meta-item-text">Edited on</span>
+      <time title="Modified: 2024-01-07 18:47:24" itemprop="dateModified" datetime="2024-01-07T18:47:24+08:00">2024-01-07</time>
+    </span>
+    <span class="post-meta-item">
+      <span class="post-meta-item-icon">
+        <i class="far fa-folder"></i>
+      </span>
+      <span class="post-meta-item-text">In</span>
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91/" itemprop="url" rel="index"><span itemprop="name">开发</span></a>
+        </span>
+          , 
+        <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+          <a href="/categories/%E5%BC%80%E5%8F%91/%E6%95%B0%E6%8D%AE%E5%BA%93/" itemprop="url" rel="index"><span itemprop="name">数据库</span></a>
+        </span>
+    </span>
+
+  
+</div>
+
+        </div>
+      </header>
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody"><p>笔记参考视频<a target="_blank" rel="noopener" href="https://www.youtube.com/watch?v=85pG_pDkITY">PostgreSQL Tutorial Full Course 2022</a></p>
+<p>PGSQL比mysql支持更多数据格式</p>
+<h2 id="创建一个表"><a href="#创建一个表" class="headerlink" title="创建一个表"></a>创建一个表</h2><p>创建表，表内有first_name的column格式是VARCHAR(30)，NOT NULL代表不能为空，如果是NULL代表默认为空</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> customer(</span><br><span class="line">first_name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">last_name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">email <span class="type">VARCHAR</span>(<span class="number">60</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">sex <span class="type">CHAR</span>(<span class="number">1</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">birth_date <span class="type">DATE</span> <span class="keyword">NULL</span>,</span><br><span class="line">date_entered <span class="type">TIMESTAMP</span> <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">id SERIAL <span class="keyword">PRIMARY</span> KEY,</span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+
+<h2 id="数字类型"><a href="#数字类型" class="headerlink" title="数字类型"></a>数字类型</h2><h3 id="CHARACTER-TYPES"><a href="#CHARACTER-TYPES" class="headerlink" title="CHARACTER TYPES"></a>CHARACTER TYPES</h3><ul>
+<li>Char</li>
+<li>Varchar</li>
+<li>Text</li>
+</ul>
+<h3 id="NUMERIC-TYPE"><a href="#NUMERIC-TYPE" class="headerlink" title="NUMERIC TYPE"></a>NUMERIC TYPE</h3><p>Serial:从1开始的序列数，用于column ids</p>
+<p>Smallserial,Serial,Bigserial</p>
+<p>Smallint,Integer,Bigint</p>
+<p>Decimal，Numberic，Real，Double Precision，Float</p>
+<h3 id="BOLLEANTYPES"><a href="#BOLLEANTYPES" class="headerlink" title="BOLLEANTYPES"></a>BOLLEANTYPES</h3><p>True, False or Null</p>
+<p>True,1,t,y,yes,on</p>
+<p>False,0,f,n,no,off</p>
+<p>null</p>
+<h3 id="DATA-TIME"><a href="#DATA-TIME" class="headerlink" title="DATA &#x2F; TIME"></a>DATA &#x2F; TIME</h3><h4 id="Date"><a href="#Date" class="headerlink" title="Date"></a>Date</h4><ul>
+<li>不管是输入的是什么格式时间都会得到:1974-12-21格式</li>
+</ul>
+<p>Time</p>
+<ul>
+<li>‘1:30:30 PM’:: TIME WITHOUT TIME ZONE -&gt; 13:30:30</li>
+<li>01:30 AM EST -&gt; 01:30-5:00(UTC Format)</li>
+<li>01:30 AM PST -&gt; 01:30-8:00</li>
+<li>01:30 AM UTC -&gt; 01:30+00:00</li>
+<li>‘01:30:30 PM EST’::TIME WITHOUT TIME ZONE -&gt; 13:30:30-5:00</li>
+</ul>
+<h4 id="DATE-TIME"><a href="#DATE-TIME" class="headerlink" title="DATE&#x2F;TIME"></a>DATE&#x2F;TIME</h4><p>Timestamp</p>
+<ul>
+<li>‘DEC-21-1974 1:30 PM EST’::TIMESTAMP WITH TIME ZONE -&gt; 1974-12-21 13:30-5:00</li>
+</ul>
+<p>Interval</p>
+<ul>
+<li>表示一段时间</li>
+<li>‘1day’::INTERVAL -&gt; 01:00</li>
+<li>‘1 D 1 H 1 M 1 S’::INTERVAL -&gt; 01:01:01:01</li>
+<li>INTERVAL可以用于加减时间</li>
+</ul>
+<h3 id="OTHER-TYPE"><a href="#OTHER-TYPE" class="headerlink" title="OTHER TYPE"></a>OTHER TYPE</h3><ul>
+<li>Currency</li>
+<li>Binary</li>
+<li>JSON</li>
+<li>Range</li>
+<li>Geometric</li>
+<li>Arrays</li>
+<li>XML</li>
+<li>UUID</li>
+</ul>
+<h2 id="插入表"><a href="#插入表" class="headerlink" title="插入表"></a>插入表</h2><p>插入表时不用输入id，id是 PRIMARY KEY会自动生成</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">INSERT</span> <span class="keyword">INTO</span> customer(first_name,last_name,email,company,street,city,state,zip,phone,birth_date,sex,date_entered)</span><br><span class="line"></span><br><span class="line"><span class="keyword">VALUES</span> (<span class="string">&#x27;John&#x27;</span>, <span class="string">&#x27;Doe&#x27;</span>, <span class="string">&#x27;johndoe@example.com&#x27;</span>, <span class="string">&#x27;ABC Company&#x27;</span>, <span class="string">&#x27;123 Main St&#x27;</span>, <span class="string">&#x27;City&#x27;</span>, <span class="string">&#x27;State&#x27;</span>, <span class="string">&#x27;12345&#x27;</span>, <span class="string">&#x27;555-123-4567&#x27;</span>, <span class="string">&#x27;1990-01-01&#x27;</span>, <span class="string">&#x27;M&#x27;</span>, <span class="built_in">current_timestamp</span>);</span><br></pre></td></tr></table></figure>
+
+<h2 id="基础操作"><a href="#基础操作" class="headerlink" title="基础操作"></a>基础操作</h2><h3 id="查询customer表"><a href="#查询customer表" class="headerlink" title="查询customer表"></a>查询customer表</h3><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> public.customer</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> id <span class="keyword">ASC</span></span><br></pre></td></tr></table></figure>
+
+<p>以下是ChatGPT的解释</p>
+<blockquote>
+<p>SELECT：关键字用于指示要执行一个查询操作。<br><em>：通配符表示选择所有列。在这种情况下，</em> 表示选择表中的所有列。<br>FROM：关键字用于指示要从哪个表中检索数据。<br>public.customer：表示要从名为 customer 的表中检索数据。public 是表所在的模式（schema）名称。如果没有指定模式名称，默认为 public。</p>
+</blockquote>
+<blockquote>
+<p>ORDER BY：关键字用于指示排序操作。<br>id：表示要按照哪个列进行排序，这里是 id 列。<br>ASC：表示升序排序。如果不指定排序顺序，默认为升序。如果要进行降序排序，可以使用 DESC 关键字。</p>
+</blockquote>
+<h3 id="类型"><a href="#类型" class="headerlink" title="类型"></a>类型</h3><p>创建一个自定义的枚举类型</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> TYPE sex_type <span class="keyword">as</span> enum</span><br><span class="line">(<span class="string">&#x27;M&#x27;</span>, <span class="string">&#x27;F&#x27;</span>);</span><br></pre></td></tr></table></figure>
+
+<h3 id="ALTER-TABLE"><a href="#ALTER-TABLE" class="headerlink" title="ALTER TABLE"></a>ALTER TABLE</h3><p>ChatGPT解释</p>
+<blockquote>
+<p>ALTER TABLE 语句用于修改数据库表的结构，包括列的定义和属性。在您提供的示例中，ALTER TABLE customer ALTER COLUMN sex TYPE sex_type USING sex::sex_type 语句用于修改名为 customer 的表中的 sex 列的数据类型为 sex_type，并使用 sex::sex_type 将现有的数据转换为新的数据类型。</p>
+</blockquote>
+<blockquote>
+<ul>
+<li>ALTER TABLE：关键字用于修改表的结构。</li>
+<li>customer：表示要修改的表的名称。</li>
+<li>ALTER COLUMN：关键字用于修改表中的列的定义。</li>
+<li>sex：表示要修改的列的名称。</li>
+<li>TYPE sex_type：TYPE 子句用于指定要将列的数据类型修改为 sex_type。</li>
+<li>USING sex::sex_type：USING 子句用于指定如何将现有的数据转换为新的数据类型。在这里，sex::sex_type 表示将 sex 列的值转换为 sex_type 类型。</li>
+</ul>
+</blockquote>
+<h2 id="Foregien-Key"><a href="#Foregien-Key" class="headerlink" title="Foregien Key"></a>Foregien Key</h2><p>REFERENCES关键字表示product_type(id)是一个Foregien Key用来关联product_type Column的id</p>
+<p><strong>Foregien Key不应该为PRIMARY KEY因为PRIMARY KEY会自动创建一个key</strong></p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> product(</span><br><span class="line">  type_id <span class="type">INTEGER</span> <span class="keyword">REFERENCES</span></span><br><span class="line">  product_type(id),</span><br><span class="line">  </span><br><span class="line">  name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line"></span><br><span class="line">  supplier <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  </span><br><span class="line">  id SERIAL <span class="keyword">PRIMARY</span> KEY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> product_type(</span><br><span class="line">  name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  id SERIAL <span class="keyword">PRIMARY</span> KEY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+    </div>
+
+    
+    
+    
+
+    <footer class="post-footer">
+          <div class="post-tags">
+              <a href="/tags/%E5%85%B3%E7%B3%BB%E5%9E%8B%E6%95%B0%E6%8D%AE%E5%BA%93/" rel="tag"># 关系型数据库</a>
+              <a href="/tags/pgsql/" rel="tag"># pgsql</a>
+          </div>
+
+        
+
+          <div class="post-nav">
+            <div class="post-nav-item">
+                <a href="/2024/01/04/Supabase/" rel="prev" title="初识SupaBase，FireBase的开源替代品">
+                  <i class="fa fa-angle-left"></i> 初识SupaBase，FireBase的开源替代品
+                </a>
+            </div>
+            <div class="post-nav-item">
+            </div>
+          </div>
+    </footer>
+  </article>
+</div>
+
+
+
+
+
+
+</div>
+  </main>
+
+  <footer class="footer">
+    <div class="footer-inner">
+
+  <div class="copyright">
+    &copy; 
+    <span itemprop="copyrightYear">2024</span>
+    <span class="with-love">
+      <i class="fa fa-heart"></i>
+    </span>
+    <span class="author" itemprop="copyrightHolder">HimariChans</span>
+  </div>
+  <div class="powered-by">Powered by <a href="https://hexo.io/" rel="noopener" target="_blank">Hexo</a> & <a href="https://theme-next.js.org/pisces/" rel="noopener" target="_blank">NexT.Pisces</a>
+  </div>
+
+    </div>
+  </footer>
+
+  
+  <div class="back-to-top" role="button" aria-label="Back to top">
+    <i class="fa fa-arrow-up fa-lg"></i>
+    <span>0%</span>
+  </div>
+
+<noscript>
+  <div class="noscript-warning">Theme NexT works best with JavaScript enabled</div>
+</noscript>
+
+
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js" integrity="sha256-XL2inqUJaslATFnHdJOi9GfQ60on8Wx1C2H8DYiN1xY=" crossorigin="anonymous"></script>
+<script src="/js/comments.js"></script><script src="/js/utils.js"></script><script src="/js/motion.js"></script><script src="/js/next-boot.js"></script>
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+</body>
+</html>
