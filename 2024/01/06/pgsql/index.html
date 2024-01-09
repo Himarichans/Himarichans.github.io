@@ -27,7 +27,7 @@
 <meta property="og:description" content="笔记参考视频PostgreSQL Tutorial Full Course 2022 PGSQL比mysql支持更多数据格式 创建一个表创建表，表内有first_name的column格式是VARCHAR(30)，NOT NULL代表不能为空，如果是NULL代表默认为空 123456789CREATE TABLE customer(first_name VARCHAR(30) NOT NULL,l">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2024-01-06T09:35:40.322Z">
-<meta property="article:modified_time" content="2024-01-07T13:06:10.412Z">
+<meta property="article:modified_time" content="2024-01-09T08:41:50.173Z">
 <meta property="article:author" content="HimariChans">
 <meta property="article:tag" content="关系型数据库">
 <meta property="article:tag" content="pgsql">
@@ -113,7 +113,7 @@
       <div class="sidebar-panel-container">
         <!--noindex-->
         <div class="post-toc-wrap sidebar-panel">
-            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">创建一个表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">数字类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CHARACTER-TYPES"><span class="nav-number">2.1.</span> <span class="nav-text">CHARACTER TYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NUMERIC-TYPE"><span class="nav-number">2.2.</span> <span class="nav-text">NUMERIC TYPE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOLLEANTYPES"><span class="nav-number">2.3.</span> <span class="nav-text">BOLLEANTYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DATA-TIME"><span class="nav-number">2.4.</span> <span class="nav-text">DATA &#x2F; TIME</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date"><span class="nav-number">2.4.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DATE-TIME"><span class="nav-number">2.4.2.</span> <span class="nav-text">DATE&#x2F;TIME</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OTHER-TYPE"><span class="nav-number">2.5.</span> <span class="nav-text">OTHER TYPE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">插入表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2customer%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">查询customer表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.2.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9TABLE%EF%BC%8CColumn"><span class="nav-number">4.3.</span> <span class="nav-text">修改TABLE，Column</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0column"><span class="nav-number">4.3.1.</span> <span class="nav-text">添加column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9column"><span class="nav-number">4.3.2.</span> <span class="nav-text">修改column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8Dcolumn"><span class="nav-number">4.3.3.</span> <span class="nav-text">重命名column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4column"><span class="nav-number">4.3.4.</span> <span class="nav-text">删除column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAINDEX"><span class="nav-number">4.3.5.</span> <span class="nav-text">创建INDEX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E8%A1%A8"><span class="nav-number">4.3.6.</span> <span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4table"><span class="nav-number">4.3.7.</span> <span class="nav-text">删除table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9column-type"><span class="nav-number">4.3.8.</span> <span class="nav-text">修改column type</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9CTable"><span class="nav-number">4.4.</span> <span class="nav-text">操作Table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WHERE"><span class="nav-number">4.4.1.</span> <span class="nav-text">WHERE</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foregien-Key"><span class="nav-number">5.</span> <span class="nav-text">Foregien Key</span></a></li></ol></div>
+            <div class="post-toc animated"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E8%A1%A8"><span class="nav-number">1.</span> <span class="nav-text">创建一个表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%95%B0%E5%AD%97%E7%B1%BB%E5%9E%8B"><span class="nav-number">2.</span> <span class="nav-text">数字类型</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#CHARACTER-TYPES"><span class="nav-number">2.1.</span> <span class="nav-text">CHARACTER TYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NUMERIC-TYPE"><span class="nav-number">2.2.</span> <span class="nav-text">NUMERIC TYPE</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#BOLLEANTYPES"><span class="nav-number">2.3.</span> <span class="nav-text">BOLLEANTYPES</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#DATA-TIME"><span class="nav-number">2.4.</span> <span class="nav-text">DATA &#x2F; TIME</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Date"><span class="nav-number">2.4.1.</span> <span class="nav-text">Date</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#DATE-TIME"><span class="nav-number">2.4.2.</span> <span class="nav-text">DATE&#x2F;TIME</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#OTHER-TYPE"><span class="nav-number">2.5.</span> <span class="nav-text">OTHER TYPE</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E6%8F%92%E5%85%A5%E8%A1%A8"><span class="nav-number">3.</span> <span class="nav-text">插入表</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#%E5%9F%BA%E7%A1%80%E6%93%8D%E4%BD%9C"><span class="nav-number">4.</span> <span class="nav-text">基础操作</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%9F%A5%E8%AF%A2customer%E8%A1%A8"><span class="nav-number">4.1.</span> <span class="nav-text">查询customer表</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E7%B1%BB%E5%9E%8B"><span class="nav-number">4.2.</span> <span class="nav-text">类型</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9TABLE%EF%BC%8CColumn"><span class="nav-number">4.3.</span> <span class="nav-text">修改TABLE，Column</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B7%BB%E5%8A%A0column"><span class="nav-number">4.3.1.</span> <span class="nav-text">添加column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9column"><span class="nav-number">4.3.2.</span> <span class="nav-text">修改column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E9%87%8D%E5%91%BD%E5%90%8Dcolumn"><span class="nav-number">4.3.3.</span> <span class="nav-text">重命名column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4column"><span class="nav-number">4.3.4.</span> <span class="nav-text">删除column</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%9B%E5%BB%BAINDEX"><span class="nav-number">4.3.5.</span> <span class="nav-text">创建INDEX</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E6%B8%85%E7%A9%BA%E8%A1%A8"><span class="nav-number">4.3.6.</span> <span class="nav-text">清空表</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E5%88%A0%E9%99%A4table"><span class="nav-number">4.3.7.</span> <span class="nav-text">删除table</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#%E4%BF%AE%E6%94%B9column-type"><span class="nav-number">4.3.8.</span> <span class="nav-text">修改column type</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#%E6%93%8D%E4%BD%9CTable"><span class="nav-number">4.4.</span> <span class="nav-text">操作Table</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#WHERE"><span class="nav-number">4.4.1.</span> <span class="nav-text">WHERE</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#ORDER-BY"><span class="nav-number">4.4.2.</span> <span class="nav-text">ORDER BY</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#AND"><span class="nav-number">4.4.3.</span> <span class="nav-text">AND</span></a></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Foregien-Key"><span class="nav-number">5.</span> <span class="nav-text">Foregien Key</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#JOIN"><span class="nav-number">6.</span> <span class="nav-text">JOIN</span></a></li></ol></div>
         </div>
         <!--/noindex-->
 
@@ -128,18 +128,18 @@
   <nav class="site-state">
       <div class="site-state-item site-state-posts">
         <a href="/archives/">
-          <span class="site-state-item-count">2</span>
+          <span class="site-state-item-count">3</span>
           <span class="site-state-item-name">posts</span>
         </a>
       </div>
       <div class="site-state-item site-state-categories">
           <a href="/categories/">
-        <span class="site-state-item-count">3</span>
+        <span class="site-state-item-count">5</span>
         <span class="site-state-item-name">categories</span></a>
       </div>
       <div class="site-state-item site-state-tags">
           <a href="/tags/">
-        <span class="site-state-item-count">6</span>
+        <span class="site-state-item-count">8</span>
         <span class="site-state-item-name">tags</span></a>
       </div>
   </nav>
@@ -207,7 +207,7 @@
         <i class="far fa-calendar-check"></i>
       </span>
       <span class="post-meta-item-text">Edited on</span>
-      <time title="Modified: 2024-01-07 21:06:10" itemprop="dateModified" datetime="2024-01-07T21:06:10+08:00">2024-01-07</time>
+      <time title="Modified: 2024-01-09 16:41:50" itemprop="dateModified" datetime="2024-01-09T16:41:50+08:00">2024-01-09</time>
     </span>
     <span class="post-meta-item">
       <span class="post-meta-item-icon">
@@ -338,7 +338,29 @@
 <h3 id="操作Table"><a href="#操作Table" class="headerlink" title="操作Table"></a>操作Table</h3><h4 id="WHERE"><a href="#WHERE" class="headerlink" title="WHERE"></a>WHERE</h4><p>显示折扣大于15%的商品</p>
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sales_item</span><br><span class="line"><span class="keyword">WHERE</span> discount <span class="operator">&gt;</span> <span class="number">.15</span>;</span><br></pre></td></tr></table></figure>
 
-<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> time_order_taken <span class="keyword">FROM</span> sales_order</span><br><span class="line"><span class="keyword">WHERE</span> time_order_taken <span class="operator">&gt;</span> <span class="string">&#x27;2023-12-01&#x27;</span> <span class="keyword">AND</span> time_order_taken <span class="operator">&lt;</span> <span class="string">&#x27;2023-12-31&#x27;</span>;</span><br></pre></td></tr></table></figure>
+<p>GPT解释</p>
+<blockquote>
+<p>CONCAT 函数将 first_name 和 last_name 字段连接起来，并使用空格分隔它们。AS Name 部分为连接后的姓名创建了一个别名。</p>
+</blockquote>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> CONCAT(first_name, <span class="string">&#x27;&#x27;</span>, last_name) <span class="keyword">AS</span> Name, phone, state <span class="keyword">FROM</span> customer</span><br><span class="line"><span class="keyword">WHERE</span> state <span class="operator">=</span> <span class="string">&#x27;TX&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
+<p>求和并分组</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> product_id, <span class="built_in">SUM</span>(price) <span class="keyword">AS</span> Total <span class="keyword">FROM</span> item</span><br><span class="line"><span class="keyword">WHERE</span> product_id<span class="operator">=</span><span class="number">1</span></span><br><span class="line"><span class="keyword">GROUP</span> <span class="keyword">BY</span> product_id;</span><br></pre></td></tr></table></figure>
+
+<h4 id="ORDER-BY"><a href="#ORDER-BY" class="headerlink" title="ORDER BY"></a>ORDER BY</h4><p>显示折扣大于15%的商品，然后排序</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sales_item</span><br><span class="line"><span class="keyword">WHERE</span> discount <span class="operator">&gt;</span> <span class="number">.15</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> discount;</span><br></pre></td></tr></table></figure>
+
+<p>降序排序DESC，LIMIT 5代表限制5行</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="operator">*</span> <span class="keyword">FROM</span> sales_item</span><br><span class="line"><span class="keyword">WHERE</span> discount <span class="operator">&gt;</span> <span class="number">.15</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> discount <span class="keyword">DESC</span></span><br><span class="line">LIMIT <span class="number">5</span>;</span><br></pre></td></tr></table></figure>
+
+<p>WHERE排除条件</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> state <span class="keyword">FROM</span> customer</span><br><span class="line"><span class="keyword">WHERE</span> state <span class="operator">!=</span> <span class="string">&#x27;CA&#x27;</span></span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> state;</span><br></pre></td></tr></table></figure>
+
+<p>返回两个符合条件的state</p>
+<figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> <span class="keyword">DISTINCT</span> state <span class="keyword">FROM</span> customer</span><br><span class="line"><span class="keyword">WHERE</span> state <span class="keyword">IN</span> (<span class="string">&#x27;CA&#x27;</span>, <span class="string">&#x27;NJ&#x27;</span>)</span><br><span class="line"><span class="keyword">ORDER</span> <span class="keyword">BY</span> state;</span><br></pre></td></tr></table></figure>
+
+<h4 id="AND"><a href="#AND" class="headerlink" title="AND"></a>AND</h4><figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">SELECT</span> time_order_taken <span class="keyword">FROM</span> sales_order</span><br><span class="line"><span class="keyword">WHERE</span> time_order_taken <span class="operator">&gt;</span> <span class="string">&#x27;2023-12-01&#x27;</span> <span class="keyword">AND</span> time_order_taken <span class="operator">&lt;</span> <span class="string">&#x27;2023-12-31&#x27;</span>;</span><br></pre></td></tr></table></figure>
+
 
 <h2 id="Foregien-Key"><a href="#Foregien-Key" class="headerlink" title="Foregien Key"></a>Foregien Key</h2><p>REFERENCES关键字表示product_type(id)是一个Foregien Key用来关联product_type Column的id</p>
 <p><strong>Foregien Key不应该为PRIMARY KEY因为PRIMARY KEY会自动创建一个key</strong></p>
@@ -346,6 +368,24 @@
 
 <figure class="highlight sql"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">CREATE</span> <span class="keyword">TABLE</span> product_type(</span><br><span class="line">  name <span class="type">VARCHAR</span>(<span class="number">30</span>) <span class="keyword">NOT</span> <span class="keyword">NULL</span>,</span><br><span class="line">  id SERIAL <span class="keyword">PRIMARY</span> KEY</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
 
+<h2 id="JOIN"><a href="#JOIN" class="headerlink" title="JOIN"></a>JOIN</h2><p>来自菜鸟教程</p>
+<blockquote>
+<p>SQL JOIN 子句用于把来自两个或多个表的行结合起来，基于这些表之间的共同字段。</p>
+</blockquote>
+<blockquote>
+<p>最常见的 JOIN 类型：SQL INNER JOIN（简单的 JOIN）。 SQL INNER JOIN 从多个表中返回满足 JOIN 条件的所有行。</p>
+</blockquote>
+<blockquote>
+<p>语法：<br>SELECT column1, column2, …<br>FROM table1<br>JOIN table2 ON condition;<br>参数说明：</p>
+</blockquote>
+<blockquote>
+<p>column1, column2, …：要选择的字段名称，可以为多个字段。如果不指定字段名称，则会选择所有字段。</p>
+<ul>
+<li>table1：要连接的第一个表。</li>
+<li>table2：要连接的第二个表。</li>
+<li>condition：连接条件，用于指定连接方式。</li>
+</ul>
+</blockquote>
 
     </div>
 
@@ -368,6 +408,9 @@
                 </a>
             </div>
             <div class="post-nav-item">
+                <a href="/2024/01/09/zod/" rel="next" title="zod">
+                  zod <i class="fa fa-angle-right"></i>
+                </a>
             </div>
           </div>
     </footer>
